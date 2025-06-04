@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mitarbeiterverwaltungssystem</title>
+    <script src="./index.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="employee-con">
+      <form id="user-form">
+        <div class="form-row">
+          <h3>Neuen Mitarbeiter hinzufügen:</h3>
+          <label for="name">Vorname:</label>
+          <input type="text" id="name" data-type="add" />
+          <div class="error-message" id="name-error"></div>
+        </div>
+        <div class="form-row">
+          <label for="surname">Nachname:</label>
+          <input type="text" id="surname" data-type="add" />
+          <div class="error-message" id="surname-error"></div>
+        </div>
+        <div class="form-row">
+          <label for="email">E-Mail:</label>
+          <input type="text color" id="email" data-type="add" />
+          <div class="error-message" id="email-error"></div>
+        </div>
+        <div class="form-row">
+          <label for="salary">Gehalt:</label>
+          <input type="text" id="salary" data-type="add" />
+          <div class="error-message" id="salary-error"></div>
+        </div>
+        <div class="form-row">
+          <label for="department">Abteilung:</label>
+          <input type="text" id="department" data-type="add" />
+          <div class="error-message" id="department-error"></div>
+        </div>
+        <div class="form-row">
+          <label for="position">Position:</label>
+          <input type="text" id="position" data-type="add" />
+          <div class="error-message" id="position-error"></div>
+        </div>
+        <div class="form-row">
+          <button type="submit" id="submit-btn">Mitarbeiter hinzufügen</button>
+          <div class="success-message" id="add-success"></div>
+        </div>
+      </form>
+      <div id="employee-list">
+        <div id="list-content">
+          <div id="search-con">
+            <div class="filter">
+              <label for="filter-department">Filter nach Abteilung:</label>
+              <select id="filter-department" data-type="department">
+                <option value="placeholder"></option>
+              </select>
+            </div>
+            <div class="filter">
+              <label for="filter-position">Filter nach Position:</label>
+              <select id="filter-position" data-type="position">
+                <option value="placeholder"></option>
+              </select>
+            </div>
+            <div id="search-wrapper">
+              <label for="search">Suche:</label>
+              <input type="text" id="search" placeholder="Suche nach Namen..." />
+            </div>
+          </div>
+          <div class="table-wrapper">
+            <table id="employee-table">
+              <thead>
+                <tr>
+                  <th class="table-header" data-header="name">Vorname</th>
+                  <th class="table-header" data-header="surname">Nachname</th>
+                  <th class="table-header" data-header="email">E-Mail</th>
+                  <th class="table-header" data-header="salary">Gehalt</th>
+                  <th class="table-header" data-header="department">Abteilung</th>
+                  <th class="table-header" data-header="position">Position</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="table-body"></tbody>
+            </table>
+          </div>
+          <div id="table-footer">
+            <div id="table-options">
+              <button id="export">Export Mitarbeiter</button>
+              <input id="import" type="file" accept="application/json" />
+              <button type="button" id="reset-data">Tabelledaten löschen</button>
+              <button type="button" id="reset-local-storage">Lokalen Speicher zurücksetzen</button>
+            </div>
+            <div id="pagination"></div>
+          </div>
+          <div id="info-message"></div>
+          <dialog id="edit-dialog">
+            <form id="edit-form">
+              <div class="form-row">
+                <h3>Mitarbeiter bearbeiten:</h3>
+              </div>
+              <div class="form-row">
+                <label for="edit-name">Vorname:</label>
+                <input type="text" id="edit-name" data-type="edit" />
+                <div class="edit-error-message" id="edit-name-error"></div>
+              </div>
+              <div class="form-row">
+                <label for="edit-surname">Nachname:</label>
+                <input type="text" id="edit-surname" data-type="edit" />
+                <div class="edit-error-message" id="edit-surname-error"></div>
+              </div>
+              <div class="form-row">
+                <label for="edit-email">E-Mail:</label>
+                <input type="text" id="edit-email" data-type="edit" />
+                <div class="edit-error-message" id="edit-email-error"></div>
+              </div>
+              <div class="form-row">
+                <label for="edit-salary">Gehalt:</label>
+                <input type="text" id="edit-salary" data-type="edit" />
+                <div class="edit-error-message" id="edit-salary-error"></div>
+              </div>
+              <div class="form-row">
+                <label for="edit-department">Abteilung:</label>
+                <input type="text" id="edit-department" data-type="edit" />
+                <div class="edit-error-message" id="edit-department-error"></div>
+              </div>
+              <div class="form-row">
+                <label for="edit-position">Position:</label>
+                <input type="text" id="edit-position" data-type="edit" />
+                <div class="edit-error-message" id="edit-position-error"></div>
+              </div>
+              <div class="form-row">
+                <button type="submit" id="edit-submit-btn">Speichern</button>
+              </div>
+              <div class="form-row">
+                <button type="button" id="edit-cancel-btn">Abbrechen</button>
+              </div>
+            </form>
+          </dialog>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
